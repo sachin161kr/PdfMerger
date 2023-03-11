@@ -1,5 +1,9 @@
 const express = require("express");
 
+const process = require("process");
+
+const PORT = process.env.PORT || 1337;
+
 const path = require("path");
 
 const multer = require("multer");
@@ -25,6 +29,6 @@ app.post("/merge", upload.array("pdfs", 12), async (req, res, next) => {
   res.redirect("http://localhost:1337/static/merged.pdf");
 });
 
-app.listen(1337, () => {
-  console.log("Server is running at http://localhost:1337");
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
